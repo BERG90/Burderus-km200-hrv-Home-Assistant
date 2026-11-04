@@ -1,0 +1,31 @@
+name: KM200 HRV Bridge
+version: "0.1.0"
+slug: km200hrv
+description: Buderus Logavent HRV2 über Logamatic web KM200 HRV per MQTT in Home Assistant
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: application
+boot: auto
+hassio_api: true
+services:
+  - mqtt:need
+options:
+  host: ""
+  gateway_password: ""
+  private_password: ""
+  aes_key: ""
+  roots:
+    - /ventilation
+  scan_interval: 60
+  log_level: info
+schema:
+  host: str
+  gateway_password: str
+  private_password: password
+  aes_key: str?
+  roots:
+    - str
+  scan_interval: int(15,3600)
+  log_level: list(debug|info|warning)
