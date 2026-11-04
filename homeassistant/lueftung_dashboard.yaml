@@ -1,0 +1,149 @@
+# Dashboard "Lüftung" (Sections-Ansicht).
+# Einrichten: Einstellungen -> Dashboards -> Dashboard hinzufügen -> neues Dashboard öffnen
+# -> ⋮ -> Dashboard bearbeiten -> ⋮ -> Rohkonfigurationseditor -> Inhalt einfügen.
+#
+# Für die Grafik "Luftweg" die Datei luftweg.svg nach /config/www/km200hrv/luftweg.svg kopieren
+# (danach unter /local/km200hrv/luftweg.svg erreichbar).
+title: Lüftung
+views:
+  - title: Lüftung
+    path: lueftung
+    type: sections
+    max_columns: 3
+    sections:
+      - type: grid
+        column_span: 2
+        cards:
+          - type: heading
+            heading: Luftweg
+            heading_style: title
+            icon: mdi:swap-horizontal
+          - type: picture-elements
+            image: /local/km200hrv/luftweg.svg
+            elements:
+              - type: state-label
+                entity: sensor.logavent_hrv2_sensor_extracttemp
+                style: {color: white, font-size: "clamp(18px, 4.4vw, 40px)", font-weight: "600", left: 21%, top: 62.5%, pointer-events: none}
+              - type: state-label
+                entity: sensor.logavent_hrv2_sensor_extracttemp
+                style: {color: white, font-size: "clamp(13px, 2.9vw, 26px)", font-weight: "600", left: 50.25%, top: 53.5%, pointer-events: none}
+              - type: state-label
+                entity: sensor.logavent_hrv2_sensor_supplytemp
+                style: {color: white, font-size: "clamp(13px, 2.9vw, 26px)", font-weight: "600", left: 50.25%, top: 80.5%, pointer-events: none}
+              - type: state-label
+                entity: sensor.logavent_hrv2_sensor_outdoortemp
+                style: {color: white, font-size: "clamp(13px, 2.9vw, 26px)", font-weight: "600", left: 89%, top: 53.5%, pointer-events: none}
+              - type: state-label
+                entity: sensor.logavent_hrv2_sensor_exhausttemp
+                style: {color: white, font-size: "clamp(13px, 2.9vw, 26px)", font-weight: "600", left: 89%, top: 80.5%, pointer-events: none}
+              - type: state-label
+                entity: sensor.luftung_warmeruckgewinnung
+                prefix: "Wärmerückgewinnung "
+                style: {color: "#cfe8fb", font-size: "clamp(12px, 2.4vw, 22px)", font-weight: "500", left: 70%, top: 14%, pointer-events: none}
+          - type: gauge
+            entity: sensor.luftung_warmeruckgewinnung
+            name: Wärmerückgewinnung
+            min: 0
+            max: 100
+            needle: false
+            severity: {green: 75, yellow: 60, red: 0}
+      - type: grid
+        cards:
+          - type: heading
+            heading: Steuerung
+            heading_style: title
+            icon: mdi:air-filter
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.logavent_hrv2_operationmodes_activemode
+                state_not: manual
+            card:
+              type: markdown
+              content: >-
+                **Die Anlage läuft nicht im Modus Manuell.** Home Assistant kann die Stufe nur im
+                manuellen Modus steuern. Stelle die Anlage in der MyVent-App oder am Gerät auf *Manuell*.
+          - type: tile
+            entity: input_select.luftung_betrieb
+            name: Betrieb
+            icon: mdi:air-filter
+            vertical: false
+            features:
+              - type: select-options
+            features_position: bottom
+          - type: tile
+            entity: sensor.logavent_hrv2_fan_currentfanspeed
+            name: Aktuelle Stufe
+            icon: mdi:fan
+            vertical: false
+          - type: tile
+            entity: script.luftung_stosslueftung
+            name: Stoßlüftung 30 Minuten
+            icon: mdi:weather-windy
+            vertical: false
+            tap_action: {action: toggle}
+      - type: grid
+        cards:
+          - type: heading
+            heading: Luftqualität
+            heading_style: title
+            icon: mdi:molecule
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_vocpollution
+            name: Luftqualität
+            icon: mdi:air-purifier
+            vertical: false
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_vocvalue
+            name: VOC
+            vertical: false
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_rhvalue
+            name: Luftfeuchte Abluft
+            icon: mdi:water-percent
+            vertical: false
+      - type: grid
+        cards:
+          - type: heading
+            heading: Temperaturen
+            heading_style: title
+            icon: mdi:thermometer
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_outdoortemp
+            name: Außenluft
+            vertical: false
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_supplytemp
+            name: Zuluft (ins Haus)
+            vertical: false
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_extracttemp
+            name: Abluft (aus dem Haus)
+            vertical: false
+          - type: tile
+            entity: sensor.logavent_hrv2_sensor_exhausttemp
+            name: Fortluft (nach außen)
+            vertical: false
+      - type: grid
+        cards:
+          - type: heading
+            heading: Wartung
+            heading_style: title
+            icon: mdi:wrench
+          - type: gauge
+            entity: number.logavent_hrv2_filter_remainingtime
+            name: Filter Restlaufzeit
+            unit: Tage
+            min: 0
+            max: 180
+            severity: {green: 30, yellow: 14, red: 0}
+          - type: tile
+            entity: sensor.logavent_hrv2_bypass_state
+            name: Sommer-Bypass
+            icon: mdi:valve
+            vertical: false
+          - type: tile
+            entity: sensor.logavent_hrv2_operationmodes_activemode
+            name: Betriebsart der Anlage
+            icon: mdi:cog
+            vertical: false
