@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14456b"/><stop offset="1" stop-color="#0b2540"/></linearGradient>
+    <linearGradient id="house" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c86c8"/><stop offset="1" stop-color="#0d4378"/></linearGradient>
+    <linearGradient id="warm" gradientUnits="userSpaceOnUse" x1="475" y1="0" x2="640" y2="0"><stop offset="0" stop-color="#d2693a"/><stop offset="1" stop-color="#3b95d2"/></linearGradient>
+    <linearGradient id="cold" gradientUnits="userSpaceOnUse" x1="640" y1="0" x2="475" y2="0"><stop offset="0" stop-color="#2a78bd"/><stop offset="1" stop-color="#d99a3a"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ffffff" fill-opacity="0.9"/></marker>
+  </defs>
+  <rect x="0" y="0" width="800" height="400" rx="18" fill="url(#bg)"/>
+  <polygon points="28,170 168,64 298,170 298,350 28,350" fill="url(#house)" stroke="#5db6f0" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="163" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#cfe8fb" fill-opacity="0.85">Gebäude</text>
+  <polygon points="475,162 475,232 640,340 640,270" fill="url(#warm)" fill-opacity="0.95"/>
+  <polygon points="640,162 640,232 475,340 475,270" fill="url(#cold)" fill-opacity="0.82"/>
+  <text x="557" y="140" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#cfe8fb" fill-opacity="0.85">Wärmetauscher</text>
+  <rect x="330" y="150" width="145" height="92" rx="10" fill="#d2693a"/>
+  <rect x="330" y="258" width="145" height="92" rx="10" fill="#d99a3a"/>
+  <rect x="640" y="150" width="145" height="92" rx="10" fill="#2a78bd"/>
+  <rect x="640" y="258" width="145" height="92" rx="10" fill="#3b95d2"/>
+  <line x1="303" y1="196" x2="326" y2="196" stroke="#ffffff" stroke-opacity="0.9" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="326" y1="304" x2="303" y2="304" stroke="#ffffff" stroke-opacity="0.9" stroke-width="3" marker-end="url(#arr)"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" fill-opacity="0.92" text-anchor="middle">
+    <text x="402" y="176">Abluft</text>
+    <text x="402" y="284">Zuluft</text>
+    <text x="712" y="176">Außenluft</text>
+    <text x="712" y="284">Fortluft</text>
+  </g>
+</svg>

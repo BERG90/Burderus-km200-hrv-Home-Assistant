@@ -1,0 +1,20 @@
+# Stoßlüftung: 30 Minuten Stufe 4, danach zurück auf "Automatisch".
+# In scripts.yaml einfügen oder als YAML-Script anlegen (Entität: script.luftung_stosslueftung).
+luftung_stosslueftung:
+  alias: "Lüftung: Stoßlüftung 30 Minuten"
+  description: Stellt die Lüftung 30 Minuten auf Stufe 4 und danach zurück auf Automatisch.
+  icon: mdi:weather-windy
+  mode: restart
+  sequence:
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.luftung_betrieb
+      data:
+        option: "Stufe 4"
+    - delay:
+        minutes: 30
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.luftung_betrieb
+      data:
+        option: "Automatisch"
