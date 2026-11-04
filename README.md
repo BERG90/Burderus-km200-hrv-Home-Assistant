@@ -105,7 +105,7 @@ Das Verschlüsselungsverfahren der Buderus-KM-Gateways (bekanntes Salt, AES-Schl
 
 ## Entstehung
 
-Dieses Projekt wurde von einem Hobby-Anwender mit Unterstützung von Claude (Anthropic) entwickelt und läuft produktiv an einer Logavent HRV2-230. Es gibt keinen Support, Verbesserungen und Fehlermeldungen sind aber willkommen.
+Dieses Projekt stammt von einem SHK-Meister (Sanitär/Heizung/Klima) mit Ausbildung als Elektrofachkraft, der seine Buderus-Lüftungsanlage sinnvoll in Home Assistant einbinden wollte. Entwickelt wurde es als Hobbyprojekt mit Unterstützung von Claude (Anthropic) und läuft produktiv an einer Logavent HRV2-230. Es gibt keinen Support, Verbesserungen und Fehlermeldungen sind aber willkommen.
 
 ## Lizenz
 

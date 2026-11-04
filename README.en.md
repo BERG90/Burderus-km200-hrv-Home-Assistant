@@ -67,7 +67,7 @@ The gateway encryption scheme (well-known salt, AES key derived from gateway and
 
 ## About this project
 
-This project was developed by a hobby user with the help of Claude (Anthropic) and runs in production on a Logavent HRV2-230. There is no support, but improvements and bug reports are welcome.
+This project comes from a master plumbing/heating/HVAC technician (SHK-Meister) who is also a trained electrician and wanted to integrate his Buderus ventilation unit into Home Assistant in a sensible way. It was built as a hobby project with the help of Claude (Anthropic) and runs in production on a Logavent HRV2-230. There is no support, but improvements and bug reports are welcome.
 
 ## License
 
