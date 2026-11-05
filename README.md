@@ -1,4 +1,4 @@
-# KM200 HRV → Home Assistant
+# Buderus KM200 HRV → Home Assistant
 
 Home-Assistant-Add-on, das eine **Buderus Logavent HRV2** (Lüftungsanlage mit Wärmerückgewinnung) über das Internet-Modul **Logamatic web KM200 HRV** per MQTT in Home Assistant einbindet – lokal, ohne Cloud. Dazu gibt es Beispiele für Automation, Dashboard und Helfer.
 
